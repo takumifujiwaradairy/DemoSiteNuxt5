@@ -9,6 +9,14 @@ class Api::V1::LikesController < ApplicationController
     end
   end
 
+  def destroy
+    like = @article.likes.find_by(user_id: current_user.id)
+    if like.destroy
+      article_count = @article.likes.count
+      render json: article_count
+    end
+  end
+  
   private
 
   def set_article
