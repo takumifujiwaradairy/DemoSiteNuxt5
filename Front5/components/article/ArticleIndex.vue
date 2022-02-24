@@ -9,6 +9,7 @@
       <label>コンテント</label>
       <li>{{ article.body }}</li>
       <delete-article :id="article.id"/>
+      <add-like :id="article.id"/>
     </ul>
   </div>
 </template>
@@ -16,9 +17,11 @@
 <script>
 import DeleteArticle from './DeleteArticle.vue';
 import { mapActions, mapGetters } from 'vuex';
+import AddLike from './AddLike.vue';
 export default {
   components: {
-    DeleteArticle
+    DeleteArticle,
+    AddLike
   },
   computed: {
     ...mapGetters(['getArticles'])
