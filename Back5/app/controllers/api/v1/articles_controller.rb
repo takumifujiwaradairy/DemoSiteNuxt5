@@ -18,6 +18,8 @@ class Api::V1::ArticlesController < ApplicationController
   def destroy
     if @article.user_id == current_user.id
       @article.destroy 
+    else
+      render json: @article.errors, status: 401
     end
   end
   
