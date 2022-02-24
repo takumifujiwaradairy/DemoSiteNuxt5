@@ -8,13 +8,18 @@
       <li>{{ article.title }}</li>
       <label>コンテント</label>
       <li>{{ article.body }}</li>
+      <delete-article :id="article.id"/>
     </ul>
   </div>
 </template>
 
 <script>
+import DeleteArticle from './DeleteArticle.vue';
 import { mapActions, mapGetters } from 'vuex';
 export default {
+  components: {
+    DeleteArticle
+  },
   computed: {
     ...mapGetters(['getArticles'])
   },
