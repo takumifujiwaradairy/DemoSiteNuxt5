@@ -19,8 +19,12 @@
 </template>
 
 <script>
+import DeleteArticle from './DeleteArticle.vue';
 import { mapActions, mapGetters } from 'vuex';
 export default {
+  components: {
+    DeleteArticle
+  },
   computed: {
     ...mapGetters(['getArticles'])
   },

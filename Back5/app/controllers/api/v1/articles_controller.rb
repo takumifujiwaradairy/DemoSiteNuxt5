@@ -1,5 +1,6 @@
 class Api::V1::ArticlesController < ApplicationController
-
+  before_action :set_article, only: [:destroy]
+  
   def index
     articles = Article.all
     render json: articles
@@ -14,7 +15,19 @@ class Api::V1::ArticlesController < ApplicationController
     end
   end
   
+  def destroy
+    if @article.user_id == current_user.id
+      @article.destroy 
+    else
+      render json: @article.errors, status: 401
+    end
+  end
+  
   private
+
+  def set_article
+    @article = Article.find(params[:id])
+  end
 
   def article_params
     params.require(:article).permit(:title, :body)
