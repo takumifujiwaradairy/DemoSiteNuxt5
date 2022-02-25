@@ -14,6 +14,12 @@
         <label>コンテント</label>
         {{ article.body }}
       </li>
+      <li>
+        <label>LIKEの合計</label>
+        {{ article.likes_count }}
+      </li>
+      <delete-article :id="article.id"/>
+      <add-like :id="article.id"/>
     </ul>
   </div>
 </template>

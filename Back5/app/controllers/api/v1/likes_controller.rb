@@ -3,7 +3,10 @@ class Api::V1::LikesController < ApplicationController
 
   def create
     like = @article.likes.build(user_id: current_user.id)
-    like.save
+    if like.save
+      article_count = @article.likes.count
+      render json: article_count
+    end
   end
 
   private
