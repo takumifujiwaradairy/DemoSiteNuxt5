@@ -21,9 +21,11 @@
 <script>
 import DeleteArticle from './DeleteArticle.vue';
 import { mapActions, mapGetters } from 'vuex';
+import AddLike from './AddLike.vue';
 export default {
   components: {
-    DeleteArticle
+    DeleteArticle,
+    AddLike
   },
   computed: {
     ...mapGetters(['getArticles'])
